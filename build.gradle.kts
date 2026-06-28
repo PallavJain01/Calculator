@@ -1,9 +1,15 @@
 plugins {
     id("java")
+    id("application")
 }
 
+application {
+    mainClass = "io.github.pallavjain01.calculator.CalculatorMain"
+}
+
+
 group = "io.github.pallavjain01"
-version = "1.0-SNAPSHOT"
+version = "1.0"
 
 repositories {
     mavenCentral()
@@ -17,4 +23,10 @@ dependencies {
 
 tasks.test {
     useJUnitPlatform()
+}
+
+tasks.jar {
+    manifest {
+        attributes["Main-Class"] = "io.github.pallavjain01.CalculatorMain"
+    }
 }
